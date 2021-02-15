@@ -1,28 +1,25 @@
-//const env=require('dotenv').config(); //appel de dotenv
-const mongodb=require('mongodb');
+
+const mongoose = require('mongoose');
 const env = require('dotenv');
 const result = env.config();
-if (result.error){console.log(result.error)  }
-console.log(result.parsed)
+mongoose.Promise = global.Promise;
 
-let connectionString = process.env.MONGO_URI;
-
-mongodb.connect(
-  connectionString,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  function (err, client) {
-  if (err != undefined){
-    console.log("Une erreur est arrivé!")
-  }else{
-    if (client != undefined){
-        const db=client.db();
-      console.log("Connexion à MongoDB établie !");
-    } else{
-        console.log('error:'+err)
-    }
-    
-    
+class Mongo {
+  constructor(){
+    this.init()
   }
-  }
-)
+  init(){
+  mongoose.connect(process.env.MONGO_URI, { //connection a la bdd
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
 
+  mongoose.connection
+    .once('open', () => console.log("You're connected to mongodb !")) //quand bdd connecter faire:
+    .on('error', (error) => { //sinon afficher warning+error
+      console.warn('Warning', error);
+    });
+}
+}
+new Mongo()
+/* console.log(dbb) */

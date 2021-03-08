@@ -36,30 +36,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.connect = void 0;
-var Mongoose = require("mongoose");
-require('dotenv').config();
-var database;
-var connect = function () {
-    var url = process.env.MONGO_URI;
-    if (database) {
-        return;
+exports.Commande = void 0;
+var Commrepo_1 = require("../Interface/Commrepo");
+var Commande = /** @class */ (function () {
+    function Commande() {
+        this.CommandeRepository = new Commrepo_1.CommandeRepository();
     }
-    Mongoose.connect(url, {
-        useNewUrlParser: true,
-        useFindAndModify: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-    });
-    database = Mongoose.connection;
-    database.once("open", function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            console.log("Connected to database");
-            return [2 /*return*/];
+    Commande.prototype.getComById = function (body) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.CommandeRepository.getComById(body)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
         });
-    }); });
-    database.on("error", function () {
-        console.log("Error connecting to database");
-    });
-};
-exports.connect = connect;
+    };
+    Commande.prototype.createCommande = function (commande) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.CommandeRepository.createCommande(commande)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    return Commande;
+}());
+exports.Commande = Commande;

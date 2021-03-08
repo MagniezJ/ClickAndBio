@@ -36,30 +36,42 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.connect = void 0;
-var Mongoose = require("mongoose");
-require('dotenv').config();
-var database;
-var connect = function () {
-    var url = process.env.MONGO_URI;
-    if (database) {
-        return;
+exports.CommandeController = void 0;
+var env = require('dotenv').config(); //declaration du dot env
+var User = require('../model/user-model'); //declaration du modeel user
+var logger_1 = require("../logger/logger");
+var service_1 = require("../service/service");
+var commande_1 = require("../service/commande");
+var CommandeController = /** @class */ (function () {
+    function CommandeController() {
+        this.taskService = new service_1.TaskService();
+        this.logger = new logger_1.APILogger();
+        this.Commande = new commande_1.Commande();
     }
-    Mongoose.connect(url, {
-        useNewUrlParser: true,
-        useFindAndModify: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-    });
-    database = Mongoose.connection;
-    database.once("open", function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            console.log("Connected to database");
-            return [2 /*return*/];
+    CommandeController.prototype.getComById = function (body) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.logger.info('Controller: getComById', null);
+                        return [4 /*yield*/, this.Commande.getComById(body)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
         });
-    }); });
-    database.on("error", function () {
-        console.log("Error connecting to database");
-    });
-};
-exports.connect = connect;
+    };
+    CommandeController.prototype.createCommande = function (commande) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.logger.info('Controller: createCommande', commande);
+                        return [4 /*yield*/, this.Commande.createCommande(commande)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    return CommandeController;
+}());
+exports.CommandeController = CommandeController;

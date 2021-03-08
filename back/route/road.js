@@ -1,25 +1,41 @@
-const user= require('../controller/controller-user'); //recup fonction utile controller
-const express=require('express');
-const {route} = require('../app/app'); // recup app
-const app=express();
-
-const data=require('../data/bdd')
-/* const cloudinary = require("../image/upload");  
-const upload=require('../image/multer') */
-const manager=require('../Manager/user-manager');
-
-class routes{
-     constructor(req,res){
-         this.req=req;
-         this.res=res;
-        this.userRoute(req,res)
-    } 
-    userRoute(req,res){
-        console.log(req)
-        app.post('/test',manager.ControllerUser(req,res))
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express = require("express");
+var logger_1 = require("../logger/logger");
+var user_controller_1 = require("../controllers/user-controller");
+var commande_controller_1 = require("../controllers/commande-controller");
+var Road = /** @class */ (function () {
+    function Road() {
+        this.express = express();
+        this.routes();
+        this.logger = new logger_1.APILogger();
+        this.taskController = new user_controller_1.UserController();
+        this.CommandeController = new commande_controller_1.CommandeController();
     }
-}
-
-
-
-module.exports=new routes() //PAS OUBLIER EXPORT
+    Road.prototype.routes = function () {
+        var _this = this;
+        this.express.get('/', function (req, res) {
+            _this.taskController.getUserByMail(req.body).then(function (data) { return res.json(data); });
+        });
+        this.express.post('/create', function (req, res) {
+            console.log(req.body);
+            _this.taskController.createUser(req.body)
+                .then(function (data) { return res.json(data); });
+        });
+        this.express.post('/Commande', function (req, res) {
+            console.log(req.body);
+            _this.CommandeController.createCommande(req.body)
+                .then(function (data) { return res.json(data); });
+        });
+        this.express.get('/getcom', function (req, res) {
+            _this.CommandeController.getComById(req.body.id).then(function (data) { return res.json(data); });
+        });
+        this.express.delete('/delete', function (req, res) {
+            _this.taskController.deleteTask(req.body).then(function (data) { return res.json(data); });
+        });
+        // handle undefined routes
+        // this.express.use();
+    };
+    return Road;
+}());
+exports.default = new Road().express;

@@ -1,48 +1,22 @@
-const express = require('express'); //appel d'express
-const app = express(); //appel de la fonction express
-const UsersRoutes = require('../route/road'); //appel des routes 
-const bodyParser = require('body-parser');//appel de body paser ( permet recup des données du body en front)
-const cors= require('cors'); //appel de cors
-const { Server } = require('mongodb');
-const data=require('../data/bdd');
-class Appli {
-
-constructor(){
-  this.initCors();
-  this.initMiddleware();
-  this.initRoutes();
- 
-}
-initRoutes(){
-  app.use('/',UsersRoutes); // utilisation des routes
-  app.set("json spaces",2)
-}
-initMiddleware(){
-  app.use(bodyParser.json()); //instanciation du bodyparser
-  app.use(bodyParser.urlencoded({ extended: true })); //instanciation 2
-   
-}
-initCors(){
- 
- var corsOptions={ // dire qu'on accepte 
-  origin:"http://localhost:3020" //URL front
-} 
- app.use(cors(corsOptions)) //utilisation de l option du dessus
-app.use(cors()); 
-
-app.use(function(req, res, next) { //autorisation pour recevoir et envoyer
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-    res.header("Access-Control-Allow-Header", "Origin, X-Requested-With, Content-Type, Accept");
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-  });  
-  app.use(function (err, req, res, next) {
-    console.log('This is the invalid field ->', err.field)
-    next(err)
-  })
-
-}
-}
-
-module.exports = new Appli(); //exportation importante pour communications du back
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var bodyParser = require("body-parser");
+var express = require("express");
+var road_1 = require("../route/road");
+var App = /** @class */ (function () {
+    function App() {
+        this.express = express();
+        this.middleware();
+        this.routes();
+    }
+    // Configure Express middleware.
+    App.prototype.middleware = function () {
+        this.express.use(bodyParser.json());
+        this.express.use(bodyParser.urlencoded({ extended: false }));
+    };
+    App.prototype.routes = function () {
+        this.express.use('/', road_1.default);
+    };
+    return App;
+}());
+exports.default = new App().express;

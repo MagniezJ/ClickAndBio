@@ -36,30 +36,52 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.connect = void 0;
-var Mongoose = require("mongoose");
-require('dotenv').config();
-var database;
-var connect = function () {
-    var url = process.env.MONGO_URI;
-    if (database) {
-        return;
+exports.CommandeRepository = void 0;
+var bdd_1 = require("../data/bdd");
+var commande_model_1 = require("../model/commande-model");
+var logger_1 = require("../logger/logger");
+var CommandeRepository = /** @class */ (function () {
+    function CommandeRepository() {
+        bdd_1.connect();
+        this.logger = new logger_1.APILogger();
     }
-    Mongoose.connect(url, {
-        useNewUrlParser: true,
-        useFindAndModify: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-    });
-    database = Mongoose.connection;
-    database.once("open", function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            console.log("Connected to database");
-            return [2 /*return*/];
+    CommandeRepository.prototype.getComById = function (body) {
+        return __awaiter(this, void 0, void 0, function () {
+            var user;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, commande_model_1.Commande.find({ _id: body })];
+                    case 1:
+                        user = _a.sent();
+                        console.log('commande:::', user);
+                        return [2 /*return*/, user];
+                }
+            });
         });
-    }); });
-    database.on("error", function () {
-        console.log("Error connecting to database");
-    });
-};
-exports.connect = connect;
+    };
+    CommandeRepository.prototype.createCommande = function (commande) {
+        return __awaiter(this, void 0, void 0, function () {
+            var data, err_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        data = {};
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, commande_model_1.Commande.create(commande)];
+                    case 2:
+                        data = _a.sent();
+                        return [3 /*break*/, 4];
+                    case 3:
+                        err_1 = _a.sent();
+                        this.logger.error('Error::' + err_1);
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/, data];
+                }
+            });
+        });
+    };
+    return CommandeRepository;
+}());
+exports.CommandeRepository = CommandeRepository;

@@ -1,17 +1,14 @@
-const http = require("http"); //appel du modul http
-const port = process.env.PORT||5003; //definition du port 
-const app = require("./app/app"); //appel de l'app
-const server = http.createServer(app);//creation du serveur htpp avec fonction de l app
-
-
-class Server{
-    constructor(){
-        this.start()
-    }
-    start(){
-        server.listen(port,()=>{ // ecoute du port definit
-        console.log("connection serveur sur "+port) //Affiche si connection ok
-    })}
-}
-
-new Server;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var http = require("http");
+var app_1 = require("./app/app");
+/* import { APILogger } from "./logger/api.logger"; */
+require('dotenv').config();
+var port = process.env.PORT || 9998;
+app_1.default.set("port", port);
+var server = http.createServer(app_1.default);
+server.listen(port);
+server.on("listening", function () {
+    console.log("you're connected at " + port);
+});
+module.exports = app_1.default;

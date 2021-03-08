@@ -1,0 +1,7 @@
+{
+    "files": ["model/user-model.ts","model/commande-model.ts","Interface/Userrepo.ts","Interface/Commrepo.ts","./data/bdd.ts","./Route/road.ts","./app/app.ts","server.ts","./service/commande.ts"],
+    "compilerOptions":{
+        "target":"es5",
+        "experimentalDecorators": true
+    }
+}

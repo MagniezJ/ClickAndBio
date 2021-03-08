@@ -36,30 +36,42 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.connect = void 0;
-var Mongoose = require("mongoose");
-require('dotenv').config();
-var database;
-var connect = function () {
-    var url = process.env.MONGO_URI;
-    if (database) {
-        return;
+exports.TaskService = void 0;
+var Userrepo_1 = require("../Interface/Userrepo");
+var TaskService = /** @class */ (function () {
+    function TaskService() {
+        this.taskRepository = new Userrepo_1.TaskRepository();
     }
-    Mongoose.connect(url, {
-        useNewUrlParser: true,
-        useFindAndModify: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-    });
-    database = Mongoose.connection;
-    database.once("open", function () { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            console.log("Connected to database");
-            return [2 /*return*/];
+    TaskService.prototype.getUserByMail = function (body) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.taskRepository.getUserByMail(body)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
         });
-    }); });
-    database.on("error", function () {
-        console.log("Error connecting to database");
-    });
-};
-exports.connect = connect;
+    };
+    TaskService.prototype.createUser = function (user) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.taskRepository.createUser(user)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    TaskService.prototype.deleteTask = function (taskId) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.taskRepository.deleteTask(taskId)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    return TaskService;
+}());
+exports.TaskService = TaskService;

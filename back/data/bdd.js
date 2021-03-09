@@ -52,6 +52,7 @@ var connect = function () {
         useCreateIndex: true,
     });
     database = Mongoose.connection;
+    Mongoose.set('useFindAndModify', false);
     database.once("open", function () { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             console.log("Connected to database");

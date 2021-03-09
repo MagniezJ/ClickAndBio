@@ -6,13 +6,15 @@ export interface ICom extends Document {
     Heurerdv: string;
     Daterdv: string;
     Etat: string;
+    Produits: [string]
 }
 
 const CommandeSchema:Schema = new Schema({
     Magasin: {type: String},
     Heurerdv:{type: String},
     Daterdv: {type: String},
-    Etat: {type: String }
+    Etat: {type: String },
+    Produits:{type: [String]}
 });
 
 

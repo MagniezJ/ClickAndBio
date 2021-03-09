@@ -82,6 +82,23 @@ var CommandeRepository = /** @class */ (function () {
             });
         });
     };
+    CommandeRepository.prototype.delete = function (commande) {
+        return __awaiter(this, void 0, void 0, function () {
+            var data, user;
+            return __generator(this, function (_a) {
+                data = {};
+                try {
+                    user = commande_model_1.Commande.findOneAndDelete({ _id: commande._id });
+                    data = user;
+                    console.log('tasks:::', user);
+                }
+                catch (err) {
+                    this.logger.error('Error::' + err);
+                }
+                return [2 /*return*/, data];
+            });
+        });
+    };
     return CommandeRepository;
 }());
 exports.CommandeRepository = CommandeRepository;

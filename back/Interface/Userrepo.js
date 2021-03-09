@@ -84,12 +84,32 @@ var TaskRepository = /** @class */ (function () {
     };
     TaskRepository.prototype.deleteTask = function (taskId) {
         return __awaiter(this, void 0, void 0, function () {
-            var data;
+            var data, user;
             return __generator(this, function (_a) {
                 data = {};
                 try {
-                    data = user_model_1.User.findOneAndDelete({ email: taskId.email });
-                    console.log('tasks:::', data);
+                    user = user_model_1.User.findOneAndDelete({ email: taskId.email });
+                    data = user;
+                    console.log('tasks:::', user);
+                }
+                catch (err) {
+                    this.logger.error('Error::' + err);
+                }
+                return [2 /*return*/, data];
+            });
+        });
+    };
+    TaskRepository.prototype.updateUser = function (userId) {
+        return __awaiter(this, void 0, void 0, function () {
+            var data, user;
+            return __generator(this, function (_a) {
+                data = {};
+                try {
+                    user = user_model_1.User.findOneAndUpdate({ email: userId.email, passWord: userId.passWord,
+                        firstName: userId.firstName, lastName: userId.lastName
+                    });
+                    data = user;
+                    console.log('tasks:::', user);
                 }
                 catch (err) {
                     this.logger.error('Error::' + err);

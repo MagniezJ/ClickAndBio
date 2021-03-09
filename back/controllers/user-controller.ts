@@ -12,9 +12,7 @@ export class UserController {
         this.taskService = new TaskService();
         this.logger = new APILogger()
     }
-        async CreateUser() {//creeation utilisateur
-        console.log("test")
-    }
+       
 
     async getUserByMail(body) {
         this.logger.info('Controller: getTasks', null)
@@ -26,9 +24,12 @@ export class UserController {
     }
     async createUser(user) {
         this.logger.info('Controller: createTask', user);
-        const Salt=bcrypt.genSalt(10);
-            const Hash=bcrypt.hash(user.passWord,Salt);
-            user.passWord=Hash;
+        
         return await this.taskService.createUser(user);
+    }
+    async updateUser(user){
+        this.logger.info('Controller: UpdateUser', user);
+        
+        return await this.taskService.UpdateUser(user);
     }
 }

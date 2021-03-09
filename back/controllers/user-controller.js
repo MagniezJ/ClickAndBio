@@ -41,20 +41,11 @@ var env = require('dotenv').config(); //declaration du dot env
 var User = require('../model/user-model'); //declaration du modeel user
 var logger_1 = require("../logger/logger");
 var service_1 = require("../service/service");
-var bcrypt = require("bcrypt");
 var UserController = /** @class */ (function () {
     function UserController() {
         this.taskService = new service_1.TaskService();
         this.logger = new logger_1.APILogger();
     }
-    UserController.prototype.CreateUser = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                console.log("test");
-                return [2 /*return*/];
-            });
-        });
-    };
     UserController.prototype.getUserByMail = function (body) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -81,15 +72,23 @@ var UserController = /** @class */ (function () {
     };
     UserController.prototype.createUser = function (user) {
         return __awaiter(this, void 0, void 0, function () {
-            var Salt, Hash;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         this.logger.info('Controller: createTask', user);
-                        Salt = bcrypt.genSalt(10);
-                        Hash = bcrypt.hash(user.passWord, Salt);
-                        user.passWord = Hash;
                         return [4 /*yield*/, this.taskService.createUser(user)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    UserController.prototype.updateUser = function (user) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.logger.info('Controller: UpdateUser', user);
+                        return [4 /*yield*/, this.taskService.UpdateUser(user)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });

@@ -19,4 +19,7 @@ export class TaskService {
     async deleteTask(taskId) {
         return await this.taskRepository.deleteTask(taskId);
     }
+    async UpdateUser(userId){
+        return await this.taskRepository.updateUser(userId)
+    }
 }

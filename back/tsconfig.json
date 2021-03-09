@@ -1,5 +1,16 @@
 {
-    "files": ["model/user-model.ts","model/commande-model.ts","Interface/Userrepo.ts","Interface/Commrepo.ts","./data/bdd.ts","./Route/road.ts","./app/app.ts","server.ts","./service/commande.ts"],
+    "files": ["./model/user-model.ts",
+        "./model/commande-model.ts",
+        "Interface/Userrepo.ts",
+        "Interface/Commrepo.ts",
+        "./data/bdd.ts"
+        ,"./Route/road.ts",
+        "./app/app.ts"
+        ,"server.ts",
+        "./service/commande.ts",
+        "./model/catégorie-model.ts",
+        "./model/Magasin-model.ts",
+        "./model/Produit-model.ts"],
     "compilerOptions":{
         "target":"es5",
         "experimentalDecorators": true

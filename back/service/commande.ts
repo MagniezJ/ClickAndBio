@@ -15,5 +15,7 @@ export class Commande {
     async createCommande(commande) {
         return await this.CommandeRepository.createCommande(commande);
     }
-
+    async delete(commande) {
+        return await this.CommandeRepository.delete(commande);
+    }
 }

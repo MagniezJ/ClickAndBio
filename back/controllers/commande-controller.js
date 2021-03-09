@@ -40,11 +40,9 @@ exports.CommandeController = void 0;
 var env = require('dotenv').config(); //declaration du dot env
 var User = require('../model/user-model'); //declaration du modeel user
 var logger_1 = require("../logger/logger");
-var service_1 = require("../service/service");
 var commande_1 = require("../service/commande");
 var CommandeController = /** @class */ (function () {
     function CommandeController() {
-        this.taskService = new service_1.TaskService();
         this.logger = new logger_1.APILogger();
         this.Commande = new commande_1.Commande();
     }
@@ -67,6 +65,18 @@ var CommandeController = /** @class */ (function () {
                     case 0:
                         this.logger.info('Controller: createCommande', commande);
                         return [4 /*yield*/, this.Commande.createCommande(commande)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    CommandeController.prototype.delete = function (commande) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.logger.info('Controller: delete commande', commande);
+                        return [4 /*yield*/, this.Commande.delete(commande)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });

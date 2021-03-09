@@ -20,7 +20,7 @@ export const connect = () => {
     });
     
     database = Mongoose.connection;
-
+    Mongoose.set('useFindAndModify', false);
     database.once("open", async () => {
         console.log("Connected to database");
     });

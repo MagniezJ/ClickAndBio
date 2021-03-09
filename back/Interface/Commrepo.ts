@@ -26,5 +26,16 @@ export class CommandeRepository {
         }
         return data;
     }
+    async delete(commande) {
+        let data={}
+        try {
 
+            const user = Commande.findOneAndDelete({_id:commande._id});   
+            data=user;       
+        console.log('tasks:::',user);
+        } catch(err) {
+            this.logger.error('Error::' + err);
+        }
+        return data;
+    }
 }

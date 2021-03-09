@@ -7,6 +7,7 @@ var CommandeSchema = new mongoose_1.Schema({
     Magasin: { type: String },
     Heurerdv: { type: String },
     Daterdv: { type: String },
-    Etat: { type: String }
+    Etat: { type: String },
+    Produits: { type: [String] }
 });
 exports.Commande = mongoose_1.model('commande', CommandeSchema);

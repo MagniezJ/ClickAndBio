@@ -29,11 +29,26 @@ export class TaskRepository {
         return data;
     }
     async deleteTask(taskId) {
-        let data= {};
+        let data={}
         try {
 
-            data = User.findOneAndDelete({email:taskId.email});          
-        console.log('tasks:::', data);
+            const user = User.findOneAndDelete({email:taskId.email});   
+            data=user;       
+        console.log('tasks:::',user);
+        } catch(err) {
+            this.logger.error('Error::' + err);
+        }
+        return data;
+    }
+    async updateUser(userId) {
+        let data={}
+        try {
+
+            const user = User.findOneAndUpdate({email:userId.email,passWord: userId.passWord,
+                firstName: userId.firstName,lastName: userId.lastName
+            });   
+            data=user;       
+        console.log('tasks:::',user);
         } catch(err) {
             this.logger.error('Error::' + err);
         }

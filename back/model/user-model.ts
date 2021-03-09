@@ -6,7 +6,7 @@ export interface ITask extends Document {
     passWord: string;
     firstName: string;
     lastName: string;
-    Commandes: [{Commande}]
+    Commandes: [string]
 }
 
 const UserSchema:Schema = new Schema({
@@ -14,7 +14,7 @@ const UserSchema:Schema = new Schema({
   passWord:{type: String},
   firstName: {type: String},
   lastName: {type: String },
-  Commandes: {type: [{Commande}]}
+  Commandes: {type: [String]}
 });
 
 

@@ -73,6 +73,12 @@ var Road = /** @class */ (function () {
                 }
             });
         }); });
+        this.express.delete('/delete', function (req, res) {
+            _this.taskController.deleteTask(req.body).then(function (data) { return res.json(data); });
+        });
+        this.express.post('/update/user', function (req, res) {
+            _this.taskController.updateUser(req.body).then(function (data) { return res.json(data); });
+        });
         this.express.post('/Commande', function (req, res) {
             console.log(req.body);
             _this.CommandeController.createCommande(req.body)
@@ -83,12 +89,6 @@ var Road = /** @class */ (function () {
         });
         this.express.get('/getcom', function (req, res) {
             _this.CommandeController.getComById(req.body.id).then(function (data) { return res.json(data); });
-        });
-        this.express.delete('/delete', function (req, res) {
-            _this.taskController.deleteTask(req.body).then(function (data) { return res.json(data); });
-        });
-        this.express.post('/update/user', function (req, res) {
-            _this.taskController.updateUser(req.body).then(function (data) { return res.json(data); });
         });
         // handle undefined routes
         // this.express.use();

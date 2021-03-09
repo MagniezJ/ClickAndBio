@@ -31,6 +31,12 @@ constructor() {
             this.taskController.createUser(req.body)
                 .then(data => res.json(data));
         });
+        this.express.delete('/delete', (req, res) => {
+            this.taskController.deleteTask(req.body).then(data => res.json(data));
+        });
+        this.express.post('/update/user', (req,res)=>{
+            this.taskController.updateUser(req.body).then(data=>res.json(data));
+        })
         this.express.post('/Commande', (req, res) => {
             console.log(req.body);
             this.CommandeController.createCommande(req.body)
@@ -42,12 +48,7 @@ constructor() {
         this.express.get('/getcom', (req, res) => {
             this.CommandeController.getComById(req.body.id).then(data => res.json(data));
         });
-        this.express.delete('/delete', (req, res) => {
-            this.taskController.deleteTask(req.body).then(data => res.json(data));
-        });
-        this.express.post('/update/user', (req,res)=>{
-            this.taskController.updateUser(req.body).then(data=>res.json(data));
-        })
+        
     
     // handle undefined routes
    // this.express.use();

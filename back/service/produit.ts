@@ -12,6 +12,9 @@ export class Produit {
         return await this.ProduitRepository.getComById(body);
     }
 
+    async getProd(body) {
+        return await this.ProduitRepository.getProd(body);
+    }
     async createProduct(product) {
         return await this.ProduitRepository.createProduct(product);
     }

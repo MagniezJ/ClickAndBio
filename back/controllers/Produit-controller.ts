@@ -16,6 +16,10 @@ export class ProduitController {
         this.logger.info('Controller: getComById', null)
         return await this.Produit.getProdById(body);
     }
+    async getProd(body) {
+        this.logger.info('Controller: getComById', null)
+        return await this.Produit.getProd(body);
+    }
 
     async createProduct(produit) {
         this.logger.info('Controller: createCommande', produit);

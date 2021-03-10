@@ -16,6 +16,11 @@ export class ProduitRepository {
         console.log('commande:::', user);
         return user;
     }
+    async getProd(body) {
+        const user = await Produit.find({});
+        console.log('commande:::', user);
+        return user;
+    }
 
     async createProduct(produit) {
         let data = {};

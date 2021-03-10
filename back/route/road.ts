@@ -75,6 +75,11 @@ constructor() {
             this.ProduitController.getProdById(req.body)
                 .then(data => res.json(data));
         });
+        this.express.get('/find/All/Produit', (req, res) => {
+            console.log(req.body);
+            this.ProduitController.getProd(req.body)
+                .then(data => res.json(data));
+        });
         this.express.delete('/delete/Produit', (req, res) => {
             console.log(req.body);
             this.ProduitController.deleteProduit(req.body)

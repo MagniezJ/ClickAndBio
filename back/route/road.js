@@ -41,6 +41,12 @@ var bcrypt = require("bcrypt");
 var logger_1 = require("../logger/logger");
 var user_controller_1 = require("../controllers/user-controller");
 var commande_controller_1 = require("../controllers/commande-controller");
+<<<<<<< HEAD
+=======
+var Produit_controller_1 = require("../controllers/Produit-controller");
+var Magasin_controller_1 = require("../controllers/Magasin-controller");
+var Categorie_controller_1 = require("../controllers/Categorie-controller");
+>>>>>>> main
 var Road = /** @class */ (function () {
     function Road() {
         this.express = express();
@@ -48,6 +54,7 @@ var Road = /** @class */ (function () {
         this.logger = new logger_1.APILogger();
         this.taskController = new user_controller_1.UserController();
         this.CommandeController = new commande_controller_1.CommandeController();
+<<<<<<< HEAD
     }
     Road.prototype.routes = function () {
         var _this = this;
@@ -55,6 +62,19 @@ var Road = /** @class */ (function () {
             _this.taskController.getUserByMail(req.body).then(function (data) { return res.json(data); });
         });
         this.express.post('/create', function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+=======
+        this.ProduitController = new Produit_controller_1.ProduitController();
+        this.MagasinController = new Magasin_controller_1.MagasinController();
+        this.CatController = new Categorie_controller_1.CatController();
+    }
+    Road.prototype.routes = function () {
+        var _this = this;
+        //user
+        this.express.get('/find/user', function (req, res) {
+            _this.taskController.getUserByMail(req.body).then(function (data) { return res.json(data); });
+        });
+        this.express.post('/new/user', function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+>>>>>>> main
             var Salt, Hash;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -73,17 +93,27 @@ var Road = /** @class */ (function () {
                 }
             });
         }); });
+<<<<<<< HEAD
         this.express.delete('/delete', function (req, res) {
+=======
+        this.express.delete('/delete/user', function (req, res) {
+>>>>>>> main
             _this.taskController.deleteTask(req.body).then(function (data) { return res.json(data); });
         });
         this.express.post('/update/user', function (req, res) {
             _this.taskController.updateUser(req.body).then(function (data) { return res.json(data); });
         });
+<<<<<<< HEAD
         this.express.post('/Commande', function (req, res) {
+=======
+        //commande
+        this.express.post('/new/Commande', function (req, res) {
+>>>>>>> main
             console.log(req.body);
             _this.CommandeController.createCommande(req.body)
                 .then(function (data) { return res.json(data); });
         });
+<<<<<<< HEAD
         this.express.delete('/Commande/delete', function (req, res) {
             _this.CommandeController.delete(req.body).then(function (data) { return res.json(data); });
         });
@@ -92,6 +122,65 @@ var Road = /** @class */ (function () {
         });
         // handle undefined routes
         // this.express.use();
+=======
+        this.express.delete('/delete/Commande', function (req, res) {
+            _this.CommandeController.delete(req.body).then(function (data) { return res.json(data); });
+        });
+        this.express.get('/find/Commande', function (req, res) {
+            _this.CommandeController.getComById(req.body.id).then(function (data) { return res.json(data); });
+        });
+        //produit
+        this.express.post('/new/Produit', function (req, res) {
+            console.log(req.body);
+            _this.ProduitController.createProduct(req.body)
+                .then(function (data) { return res.json(data); });
+        });
+        this.express.get('/find/Produit', function (req, res) {
+            console.log(req.body);
+            _this.ProduitController.getProdById(req.body)
+                .then(function (data) { return res.json(data); });
+        });
+        this.express.delete('/delete/Produit', function (req, res) {
+            console.log(req.body);
+            _this.ProduitController.deleteProduit(req.body)
+                .then(function (data) { return res.json(data); });
+        });
+        //magasin
+        this.express.post('/new/Magasin', function (req, res) {
+            console.log(req.body);
+            _this.ProduitController.createProduct(req.body)
+                .then(function (data) { return res.json(data); });
+        });
+        this.express.get('/find/Magasin', function (req, res) {
+            console.log(req.body);
+            _this.MagasinController.getMagById(req.body)
+                .then(function (data) { return res.json(data); });
+        });
+        this.express.delete('/delete/Magasin', function (req, res) {
+            console.log(req.body);
+            _this.MagasinController.deleteMagasin(req.body)
+                .then(function (data) { return res.json(data); });
+        });
+        this.express.post('/update/Magasin', function (req, res) {
+            _this.MagasinController.updateMag(req.body).then(function (data) { return res.json(data); });
+        });
+        //catégorie
+        this.express.post('/new/Categorie', function (req, res) {
+            console.log(req.body);
+            _this.CatController.createCategorie(req.body)
+                .then(function (data) { return res.json(data); });
+        });
+        this.express.get('/find/Categorie', function (req, res) {
+            console.log(req.body);
+            _this.CatController.getCatById(req.body)
+                .then(function (data) { return res.json(data); });
+        });
+        this.express.delete('/delete/Categorie', function (req, res) {
+            console.log(req.body);
+            _this.CatController.deleteCat(req.body)
+                .then(function (data) { return res.json(data); });
+        });
+>>>>>>> main
     };
     return Road;
 }());

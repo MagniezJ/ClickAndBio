@@ -1,60 +1,45 @@
 import React, { FunctionComponent, useEffect} from 'react';
-import img from '../imgs/logo.png';
+import { Layout, Menu } from 'antd';
+import {Link} from 'react-router-dom';
 import banane from '../imgs/banane.png';
 import pomme from '../imgs/pomme.png';
 import riz from '../imgs/riz.png';
-import {Link} from 'react-router-dom';
-import { Layout, Menu, Breadcrumb } from 'antd';
 import '../css/styles.css';
 import '../css/reset.css';
-
 const { SubMenu } = Menu;
-const { Header, Content, Footer, Sider } = Layout;
-
+const { Header, Content, Sider } = Layout;
 const Produit: FunctionComponent = () => {
+ useEffect(() => {
+  }, []);
 
-//  useEffect(() => {
-
-//   }, []);
   return (
   <div>
-        <Layout style={{ height: '100vh', overflow: 'hidden'}}>
+      <Layout style={{ height: '100vh', overflow: 'hidden' }}>
     <Header className="header">
       <div className="logo" />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        <Menu.Item key="1"><Link to={'/'}></Link>Home</Menu.Item>
-        <Menu.Item key="2"><Link to={'/Produit'}></Link>Produit</Menu.Item>
-        <Menu.Item key="3">nav 3</Menu.Item>
+        <Menu.Item key="1"><Link to="../"><span>Accueil</span></Link></Menu.Item>
+        <Menu.Item key="2">Pannier</Menu.Item>
+        <Menu.Item key="3"></Menu.Item>
       </Menu>
     </Header>
-    <Content style={{ padding: '0 50px' }}>
-      <Breadcrumb style={{ margin: '16px 0' }}>
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>List</Breadcrumb.Item>
-        <Breadcrumb.Item>App</Breadcrumb.Item>
-      </Breadcrumb>
-      <Layout className="site-layout-background">
-        <Sider className="site-layout-background" style={{height: '350px'}} width={200}>
+    <Content style={{ padding: '0 50px', height: "92vh" }}>
+      
+      <Layout className="site-layout-background" style={{ padding: '24px 0' }}>
+        <Sider className="site-layout-background" width={200}>
           <Menu
             mode="inline"
             defaultSelectedKeys={['1']}
             defaultOpenKeys={['sub1']}
-            style={{ height: '350px' }}
+            style={{ height: '85vh' }}
           >
-                <Menu.Item key="1">fruit & Legumes</Menu.Item>
-                <Menu.Item key="2">Boissons</Menu.Item>
-                <Menu.Item key="3">Epicerie Salée</Menu.Item>
-                <Menu.Item key="4">Epicerie Sucré</Menu.Item>
-                <Menu.Item key="5">Produit Frais</Menu.Item>
-                <Menu.Item key="6">Sans Gluten</Menu.Item>
-                <Menu.Item key="7">Vegan</Menu.Item>
-            {/* <SubMenu key="sub1"  title="fruit & legumes"> */}
-            
-              {/* <Menu.Item key="2">origine</Menu.Item>
+            <SubMenu key="sub1"    title="subnav 1">
+              <Menu.Item key="1">option1</Menu.Item>
+              <Menu.Item key="2">option2</Menu.Item>
               <Menu.Item key="3">option3</Menu.Item>
-              <Menu.Item key="4">option4</Menu.Item> */}
-            {/* </SubMenu> */}
-            {/* <SubMenu key="sub2"  title="subnav 2">
+              <Menu.Item key="4">option4</Menu.Item>
+            </SubMenu>
+            <SubMenu key="sub2"  title="subnav 2">
               <Menu.Item key="5">option5</Menu.Item>
               <Menu.Item key="6">option6</Menu.Item>
               <Menu.Item key="7">option7</Menu.Item>
@@ -65,10 +50,12 @@ const Produit: FunctionComponent = () => {
               <Menu.Item key="10">option10</Menu.Item>
               <Menu.Item key="11">option11</Menu.Item>
               <Menu.Item key="12">option12</Menu.Item>
-            </SubMenu> */}
+            </SubMenu>
           </Menu>
         </Sider>
-        <Content className="top" style={{ padding: '0 24px', minHeight: 280 }}><div className="container-carte">
+        <Content className="top" style={{ padding: '0 24px', minHeight: 280 }}>
+            
+        <div className="container-carte">
           <div className="carte">
               <span></span>
               <img src={pomme} alt=""/>
@@ -85,43 +72,13 @@ const Produit: FunctionComponent = () => {
               <img src={riz} alt=""/>
               <h1>Riz</h1>
           </div>
-          <div className="carte">
-              <span></span>
-              <img src={pomme} alt=""/>
-              <h1>Pomme</h1>
-              <p></p>
-          </div>
-          <div className="carte">
-              <span></span>
-              <img src={banane} alt=""/>
-              <h1>Banane</h1>
-          </div>
-          <div className="carte">
-              <span></span>
-              <img src={riz} alt=""/>
-              <h1>Riz</h1>
-          </div>
-          <div className="carte">
-              <span></span>
-              <img src={pomme} alt=""/>
-              <h1>Pomme</h1>
-              <p></p>
-
-          </div>
-          <div className="carte">
-              <span></span>
-              <img src={banane} alt=""/>
-              <h1>Banane</h1>
-          </div>
-          <div className="carte">
-              <span></span>
-              <img src={riz} alt=""/>
-              <h1>Riz</h1>
-          </div>
-      </div></Content>
+         
+      </div>
+        </Content>
       </Layout>
     </Content>
-  </Layout>
+  
+  </Layout>,
   </div>
   
   );

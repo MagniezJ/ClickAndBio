@@ -100,8 +100,8 @@ const Index: FunctionComponent = () => {
               <img src={riz} alt=""/>
               <h1>Riz</h1>
           </div>
-          <Link className="button" to={'/Produit'}><span>Voir tous les produits</span></Link>
-      </div> 
+          <Link to="/produit" className="button"><span>voir tous les produits</span></Link>
+      </div>
   </div>
   </div>
   

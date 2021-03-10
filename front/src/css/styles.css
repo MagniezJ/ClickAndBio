@@ -9,7 +9,8 @@ div, header, nav, article, section, aside, footer, h1, h2, h3, h4, h5, h6, p, a,
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html, body {
@@ -21,7 +22,7 @@ html, body {
   padding: 0;
   width: 100%;
   display: block;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 img, object, embed, canvas, video, audio, picture, svg {
@@ -85,11 +86,14 @@ a {
   height: 1000px;
   width: 100%;
 }
+
 .container-header nav {
   background: transparent !important;
   border: none;
-  box-shadow: inherit;
+  -webkit-box-shadow: inherit;
+          box-shadow: inherit;
 }
+
 .container-header h1 {
   width: 100%;
   text-align: center;
@@ -99,22 +103,35 @@ a {
 
 .container-text {
   margin: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#135554), to(#372d3b));
   background: linear-gradient(180deg, #135554 0%, #372d3b 100%);
   position: relative;
   top: -50px;
   height: 130vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .container-text .etape {
   width: 80%;
   border: solid 1px #FBC13E;
   padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
+
 .container-text .etape h1 {
   color: #FBC13E;
   text-align: center;
@@ -144,16 +161,22 @@ a {
   margin: 0 auto;
   padding-top: 30px;
 }
+
 .container-text .etape article p b {
   color: #D94362;
 }
+
 .container-text .valeurs {
   width: 80%;
   padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   padding-top: 0px;
 }
+
 .container-text .valeurs article {
   width: 20%;
   padding-top: 50px;
@@ -165,21 +188,27 @@ a {
   background-repeat: no-repeat;
   background-position: center;
 }
+
 .container-text .valeurs article .picto.un {
   background-image: url(../imgs/picto-un.png);
 }
+
 .container-text .valeurs article .picto.deux {
   background-image: url(../imgs/picto-deux.png);
 }
+
 .container-text .valeurs article .picto.trois {
   background-image: url(../imgs/picto-trois.png);
 }
+
 .container-text .valeurs article .picto.quatre {
   background-image: url(../imgs/picto-quatre.png);
 }
+
 .container-text .valeurs article .picto.cinq {
   background-image: url(../imgs/picto-cinq.png);
 }
+
 .container-text .valeurs article p {
   text-align: center;
   width: 60%;
@@ -196,11 +225,18 @@ a {
 .prevu {
   position: relative;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: linear-gradient(179.22deg, #D0EDD3 25.7%, rgba(140, 168, 43, 0.1) 100.23%, rgba(51, 60, 20, 0) 100.24%);
 }
+
 .prevu .bg-bot {
   background-image: url(../imgs/bg-bot.png);
   background-size: contain;
@@ -210,12 +246,19 @@ a {
   position: absolute;
   top: -50px;
 }
+
 .prevu .container-carte {
   width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 .prevu .container-carte .carte {
   position: relative;
   overflow: hidden;
@@ -224,14 +267,20 @@ a {
   margin: 50px;
   border-radius: 20px;
   background-color: white;
-  box-shadow: black;
+  -webkit-box-shadow: black;
+          box-shadow: black;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   cursor: pointer;
 }
+
 .prevu .container-carte .carte:hover {
-  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
+
 .prevu .container-carte .carte span {
   background: rgba(75, 143, 21, 0.7);
   height: 400px;
@@ -253,43 +302,61 @@ a {
   margin-top: 250px;
 }
 
-.button {
-  color: #4b8f15;
-  height: 30px;
+.prevu .container-carte .button {
   width: 100%;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-.button span {
-  border: 3px solid #4b8f15;
-  width: 20%;
+
+.prevu .container-carte .button span {
+  border: solid 1px black;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 15px 30px;
+  width: 40%;
+  margin-top: 20px;
   text-align: center;
 }
 
 .top .container-carte {
-  width: 100%;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  overflow-y: scroll;
-  height: 860px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 .top .container-carte .carte {
   position: relative;
   overflow: hidden;
-  height: 345px;
+  height: 400px;
   width: 250px;
   margin: 50px;
   border-radius: 20px;
   background-color: white;
-  box-shadow: black;
+  -webkit-box-shadow: black;
+          box-shadow: black;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   cursor: pointer;
 }
+
 .top .container-carte .carte:hover {
-  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
+
 .top .container-carte .carte span {
   background: rgba(75, 143, 21, 0.7);
   height: 400px;
@@ -311,10 +378,41 @@ a {
   margin-top: 250px;
 }
 
-.ant-layout-content {
-  background-color: #7fa571;
+.top .container-carte .button {
+  width: 100%;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.top .container-carte .button span {
+  border: solid 1px black;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 15px 30px;
+  width: 40%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#components-layout-demo-top-side-2 .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-row-rtl #components-layout-demo-top-side-2 .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
 }
 
 .site-layout-background {
-  height: 350px;
-}/*# sourceMappingURL=styles.css.map */
+  background: #fff;
+}
+/*# sourceMappingURL=styles.css.map */

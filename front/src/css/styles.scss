@@ -1,5 +1,7 @@
-// @charset "utf-8";
+
 @import 'antd/dist/antd.css';
+
+
 //-----LESS:    width: ~"calc(50% - 20px)";
 //-----CSS:    width: calc(50% - 20px);
 
@@ -255,36 +257,34 @@ h1{
         }
 
     }
-}
-}
-// bouton ver la page produit
-.button
-{
-    color:#4b8f15;
-    height: 30px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    span{
-       border: 3px solid #4b8f15;
-        width: 20%;
-        text-align: center;
+    .button{
+        width: 100%;
+        color: black;
+        display: flex;
+        justify-content: center;
+        span{
+            border: solid 1px black;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 15px 30px;
+            width: 40%;
+            margin-top: 20px;
+            text-align: center;
+        }
+
     }
 }
-// page produit details
-.top
-{
+}
+.top{
     .container-carte{
-        width: 100%;
+        width: 80%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        overflow-y: scroll;
-        height: 860px;
         .carte{
             position: relative;
             overflow: hidden;
-            height: 345px;
+            height: 400px;
             width: 250px;
             margin: 50px;
             border-radius: 20px;
@@ -319,13 +319,38 @@ h1{
             }
     
         }
-    }   
+        .button{
+            width: 100%;
+            color: black;
+            display: flex;
+            justify-content: center;
+            span{
+                border: solid 1px black;
+                font-size: 20px;
+                cursor: pointer;
+                padding: 15px 30px;
+                width: 40%;
+                margin-top: 20px;
+                text-align: center;
+            }
+    
+        }
+    }
 }
-.ant-layout-content{
-    background-color: #7fa571;
 
-}
-.site-layout-background
-{
-  height: 350px;
-}
+#components-layout-demo-top-side-2 .logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    margin: 16px 24px 16px 0;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .ant-row-rtl #components-layout-demo-top-side-2 .logo {
+    float: right;
+    margin: 16px 0 16px 24px;
+  }
+  
+  .site-layout-background {
+    background: #fff;
+  }

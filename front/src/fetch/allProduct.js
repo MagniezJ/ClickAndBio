@@ -1,4 +1,4 @@
-const URL = "htpps://localhost:3000/find/All/Produit", 
+const URL = "http://localhost:3001/find/All/Produit"
 const getProduct = () => {
 
 const params = {
@@ -15,5 +15,5 @@ fetch(URL,params).then(res => {
         console.log(json)
     })
 })
-
+}
 export default getProduct;

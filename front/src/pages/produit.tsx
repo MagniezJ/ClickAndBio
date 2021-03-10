@@ -4,12 +4,15 @@ import {Link} from 'react-router-dom';
 import banane from '../imgs/banane.png';
 import pomme from '../imgs/pomme.png';
 import riz from '../imgs/riz.png';
+import getProduct from '../fetch/allProduct'
 import '../css/styles.css';
 import '../css/reset.css';
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 const Produit: FunctionComponent = () => {
  useEffect(() => {
+    getProduct()
+
   }, []);
 
   return (

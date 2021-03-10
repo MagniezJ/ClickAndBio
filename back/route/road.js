@@ -104,9 +104,14 @@ var Road = /** @class */ (function () {
             _this.ProduitController.createProduct(req.body)
                 .then(function (data) { return res.json(data); });
         });
-        this.express.get('/find/Produit', function (req, res) {
+        /*  this.express.get('/find/Produit', (req, res) => {
+             console.log(req.body);
+             this.ProduitController.getProdById(req.body)
+                 .then(data => res.json(data));
+         }); */
+        this.express.get('/All/Produit', function (req, res) {
             console.log(req.body);
-            _this.ProduitController.getProdById(req.body)
+            _this.ProduitController.getProd(req.body)
                 .then(function (data) { return res.json(data); });
         });
         this.express.delete('/delete/Produit', function (req, res) {

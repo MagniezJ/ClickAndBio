@@ -13,21 +13,21 @@ export class ProduitController {
         this.Produit=new Produit();
     }
     async getProdById(body) {
-        this.logger.info('Controller: getComById', null)
+        this.logger.info('Controller: getProdById', null)
         return await this.Produit.getProdById(body);
     }
     async getProd(body) {
-        this.logger.info('Controller: getComById', null)
+        this.logger.info('Controller: getProdById', null)
         return await this.Produit.getProd(body);
     }
 
     async createProduct(produit) {
-        this.logger.info('Controller: createCommande', produit);
+        this.logger.info('Controller: createProduit', produit);
         return await this.Produit.createProduct(produit);
     }
 
     async deleteProduit(produit){
-        this.logger.info('Controller: delete commande', produit);
+        this.logger.info('Controller: delete produit', produit);
         return await this.Produit.deleteProduit(produit);
     }
 }

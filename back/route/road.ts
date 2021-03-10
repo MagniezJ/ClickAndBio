@@ -3,14 +3,10 @@ import * as express from "express";
 import * as bcrypt from "bcrypt";
 import { APILogger } from "../logger/logger";
 import { UserController } from "../controllers/user-controller";
-<<<<<<< HEAD
-import { CommandeController } from "../controllers/commande-controller"
-=======
 import { CommandeController } from "../controllers/commande-controller";
 import { ProduitController } from "../controllers/Produit-controller";
 import { MagasinController } from "../controllers/Magasin-controller";
 import { CatController } from "../controllers/Categorie-controller";
->>>>>>> main
 import fs = require('fs');
 
 class Road{
@@ -18,12 +14,9 @@ class Road{
     public logger: APILogger;
     public taskController:  UserController ;
     public CommandeController :CommandeController;
-<<<<<<< HEAD
-=======
     public ProduitController :ProduitController;
     public MagasinController :MagasinController;
     public CatController :CatController;
->>>>>>> main
 
 constructor() {
     this.express = express();
@@ -31,14 +24,6 @@ constructor() {
     this.logger = new APILogger();
     this.taskController = new  UserController();
     this.CommandeController = new CommandeController();
-<<<<<<< HEAD
-}
-    private routes(): void {
-        this.express.get('/', (req, res) => {
-            this.taskController.getUserByMail(req.body).then(data => res.json(data));
-        });
-        this.express.post('/create', async (req, res) => {
-=======
     this.ProduitController = new ProduitController();
     this.MagasinController = new MagasinController();
     this.CatController = new CatController();
@@ -50,7 +35,6 @@ constructor() {
             this.taskController.getUserByMail(req.body).then(data => res.json(data));
         });
         this.express.post('/new/user', async (req, res) => {
->>>>>>> main
             console.log(req.body);
             const Salt=await bcrypt.genSalt(10);
         const Hash=await bcrypt.hash(req.body.passWord,Salt);
@@ -58,40 +42,20 @@ constructor() {
             this.taskController.createUser(req.body)
                 .then(data => res.json(data));
         });
-<<<<<<< HEAD
-        this.express.delete('/delete', (req, res) => {
-=======
         this.express.delete('/delete/user', (req, res) => {
->>>>>>> main
             this.taskController.deleteTask(req.body).then(data => res.json(data));
         });
         this.express.post('/update/user', (req,res)=>{
             this.taskController.updateUser(req.body).then(data=>res.json(data));
         })
-<<<<<<< HEAD
-        this.express.post('/Commande', (req, res) => {
-=======
 
 
 //commande
         this.express.post('/new/Commande', (req, res) => {
->>>>>>> main
             console.log(req.body);
             this.CommandeController.createCommande(req.body)
                 .then(data => res.json(data));
         });
-<<<<<<< HEAD
-        this.express.delete('/Commande/delete', (req, res) => {
-            this.CommandeController.delete(req.body).then(data => res.json(data));
-        });
-        this.express.get('/getcom', (req, res) => {
-            this.CommandeController.getComById(req.body.id).then(data => res.json(data));
-        });
-        
-    
-    // handle undefined routes
-   // this.express.use();
-=======
         this.express.delete('/delete/Commande', (req, res) => {
             this.CommandeController.delete(req.body).then(data => res.json(data));
         });
@@ -156,7 +120,6 @@ constructor() {
                 .then(data => res.json(data));
         });
 
->>>>>>> main
 }
 }
 

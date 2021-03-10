@@ -1,3 +1,4 @@
+@import 'antd/dist/antd.css';
 header, section, footer, aside, nav, main, article, figure {
   display: block;
 }
@@ -309,5 +310,121 @@ a {
   text-align: center;
   width: 100%;
   margin-top: 250px;
+}
+
+.prevu .container-carte .button {
+  width: 100%;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.prevu .container-carte .button span {
+  border: solid 1px black;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 15px 30px;
+  width: 40%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.top .container-carte {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.top .container-carte .carte {
+  position: relative;
+  overflow: hidden;
+  height: 400px;
+  width: 250px;
+  margin: 50px;
+  border-radius: 20px;
+  background-color: white;
+  -webkit-box-shadow: black;
+          box-shadow: black;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.top .container-carte .carte:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.top .container-carte .carte span {
+  background: rgba(75, 143, 21, 0.7);
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  border-radius: 100%;
+  right: -200px;
+  top: -200px;
+}
+
+.top .container-carte .carte img {
+  position: absolute;
+  top: 50px;
+}
+
+.top .container-carte .carte h1 {
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+  margin-top: 250px;
+}
+
+.top .container-carte .button {
+  width: 100%;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.top .container-carte .button span {
+  border: solid 1px black;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 15px 30px;
+  width: 40%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#components-layout-demo-top-side-2 .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-row-rtl #components-layout-demo-top-side-2 .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.site-layout-background {
+  background: #fff;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -51,8 +51,20 @@ var ProduitController = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        this.logger.info('Controller: getComById', null);
+                        this.logger.info('Controller: getProdById', null);
                         return [4 /*yield*/, this.Produit.getProdById(body)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    ProduitController.prototype.getProd = function (body) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.logger.info('Controller: getProdById', null);
+                        return [4 /*yield*/, this.Produit.getProd(body)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
@@ -63,7 +75,7 @@ var ProduitController = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        this.logger.info('Controller: createCommande', produit);
+                        this.logger.info('Controller: createProduit', produit);
                         return [4 /*yield*/, this.Produit.createProduct(produit)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
@@ -75,7 +87,7 @@ var ProduitController = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        this.logger.info('Controller: delete commande', produit);
+                        this.logger.info('Controller: delete produit', produit);
                         return [4 /*yield*/, this.Produit.deleteProduit(produit)];
                     case 1: return [2 /*return*/, _a.sent()];
                 }

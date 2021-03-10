@@ -59,6 +59,20 @@ var ProduitRepository = /** @class */ (function () {
             });
         });
     };
+    ProduitRepository.prototype.getProd = function (body) {
+        return __awaiter(this, void 0, void 0, function () {
+            var user;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, Produit_model_1.Produit.find({})];
+                    case 1:
+                        user = _a.sent();
+                        console.log('commande:::', user);
+                        return [2 /*return*/, user];
+                }
+            });
+        });
+    };
     ProduitRepository.prototype.createProduct = function (produit) {
         return __awaiter(this, void 0, void 0, function () {
             var data, err_1;

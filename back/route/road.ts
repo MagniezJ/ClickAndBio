@@ -70,12 +70,12 @@ constructor() {
             this.ProduitController.createProduct(req.body)
                 .then(data => res.json(data));
         });
-        this.express.get('/find/Produit', (req, res) => {
+       /*  this.express.get('/find/Produit', (req, res) => {
             console.log(req.body);
             this.ProduitController.getProdById(req.body)
                 .then(data => res.json(data));
-        });
-        this.express.get('/find/All/Produit', (req, res) => {
+        }); */
+        this.express.get('/All/Produit', (req, res) => {
             console.log(req.body);
             this.ProduitController.getProd(req.body)
                 .then(data => res.json(data));
@@ -106,7 +106,7 @@ constructor() {
         this.express.post('/update/Magasin', (req,res)=>{
             this.MagasinController.updateMag(req.body).then(data=>res.json(data));
         })
-
+ 
 
         //catégorie
         this.express.post('/new/Categorie', (req, res) => {
